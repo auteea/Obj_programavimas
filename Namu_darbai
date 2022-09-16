@@ -1,0 +1,174 @@
+#include <iostream>
+#include <iomanip>
+#include <vector>
+#include <fstream>
+#include <algorithm>
+
+using namespace std;
+void Sort(int* arr, int n);
+
+struct Studentas {
+    string Vardas;
+    string Pavarde;
+    int nd[10];
+    int egz;
+    int ndsk;
+    double vidurkis;
+    double mediana;
+};
+void print(Studentas* studentai, int kiekis);
+void printStudentai(Studentas* studentai, int kiekis, bool isVid);
+void nuskaitymas(int n, int m);
+
+
+
+int main()
+{
+    double vidurkis = 0;
+    int studentukiekis = 0;
+    cout << "Keliu studentu duomenis norite ivesti? " << endl;
+    cin >> studentukiekis;
+
+   
+    while (studentukiekis < 1)
+    {
+        cout << "Turite ivesti bent vieno studento duomenis!" << endl;
+        cin >> studentukiekis;
+        continue;
+    }
+    Studentas studentai[10];
+    vector<Studentas> studentai2;
+
+    for (int i = 0; i < studentukiekis; i++)
+
+    {
+        cout << "Iveskite varda, pavarde" << endl;
+        cin >> studentai[i].Vardas >> studentai[i].Pavarde;
+        cout << "Kiek yra namu darbu pazymiu? ";
+        cin >> studentai[i].ndsk;
+        while (studentai[i].ndsk < 1)
+        {
+            cout << "Reikia ivesti bent vienu pardu pazymius" << endl;
+            cin >> studentai[i].ndsk;
+        }
+
+        cout << "Iveskite namu darbu pazymius" << endl;
+        for (int j = 0; j < studentai[i].ndsk; j++)
+        {
+            int pazymys;
+            cin >> pazymys;
+
+            while (pazymys > 10 || pazymys < 1)
+            {
+                cout << "Ivestas pazymis turi buti desimtbaleje sistemoje." << endl;
+                cin >> pazymys;
+                continue;
+
+            }studentai[i].nd[j] = pazymys;
+            studentai[i].vidurkis += pazymys;
+
+        }   Studentas studentas;
+        studentas.Vardas = studentai[i].Vardas;
+        studentai2.push_back(studentas);
+        
+        studentai[i].vidurkis = studentai[i].vidurkis / studentai[i].ndsk;
+
+
+        cout << "Koks egzamino pazymys?" << endl;
+        cin >> studentai[i].egz;
+        while (studentai[i].egz > 10 || studentai[i].egz < 1)
+        {
+            cout << "Egzamino pazymis turi buti desimtbaleje sistemoje." << endl;
+            cin >> studentai[i].egz;
+            continue;
+        }
+        // cout<<studentai[0].Vardas<<endl<<studentai[0].Pavarde<<endl<<studentai[0].nd<<endl<<studentai[0].egz<<endl;
+
+
+
+
+        Sort(studentai[i].nd, studentai[i].ndsk);
+        double mediana = 0;
+        int n = studentai[i].ndsk;
+        if (studentai[i].ndsk % 2 == 0)
+        {
+            mediana = (double)(studentai[i].nd[(n - 1) / 2] + studentai[i].nd[n / 2]) / 2.0;
+        }
+        else
+        {
+            mediana = (double)studentai[i].nd[n / 2];
+        };
+        studentai[i].mediana = mediana;
+
+
+        /*  for(int i=0; i<studentai[0].ndsk; i++){
+              cout<<studentai[0].nd[i]<<endl;
+          }*/
+    }
+
+
+    // cout << "galutinis pazymys yra " << setprecision(3) << galutinis << endl;
+
+    print(studentai, studentukiekis);
+    return 0;
+}
+
+void Sort(int* arr, int n)
+{
+    for (int i = 0; i < n - 1; i++)
+    {
+        for (int j = 0; j < n - i - 1; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                swap(arr[j], arr[j + 1]);
+            }
+        }
+    }
+}
+void print(Studentas* studentai, int kiekis)
+{
+    cout << "Ar norite, kad galutinis pazymys butu skaiciuojamas pagal namu darbu vidurki ar mediana?\n";
+    cout << "Iveskite 1 jei renkates vidurki, iveskite 2 jei renkates mediana" << endl;
+    double medarvid = 0;
+    cin >> medarvid;
+    while (medarvid != 1 && medarvid != 2)
+    {
+        cout << "Turite ivesti 1 arba 2" << endl;
+        cin >> medarvid;
+    }
+    if (medarvid == 1)
+    {
+        cout << "vid" << endl;
+        printStudentai(studentai, kiekis, true);
+
+    }
+    else
+    {
+        printStudentai(studentai, kiekis, false);
+        cout << "med" << endl;
+    }
+
+}
+void printStudentai(Studentas* studentai, int kiekis, bool isVid) {
+
+    if (isVid) {
+        printf("Pavarde\t\tVardas\t\tGalutinis (Vid.)\n");
+    }
+    else {
+        printf("Pavarde\t\tVardas\t\tGalutinis (Med.)\n");
+    }
+
+
+    for (int i = 0; i < kiekis; i++) {
+        if (isVid) {
+            cout << studentai[i].Pavarde << "\t\t" << studentai[i].Vardas<<"\t\t" << studentai[i].mediana << endl;
+        }
+        else {
+            cout << studentai[i].Pavarde << "\t\t" << studentai[i].Vardas << "\t\t" << studentai[i].mediana;
+        }
+
+    }
+
+
+}
