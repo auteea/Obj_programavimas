@@ -12,7 +12,7 @@
 #include <numeric>
 #include <chrono>
 
-#include "Studentas.h"
+#include "Studentas3.h"
 
 using namespace std;
 void textgenerator(string filename, int n);
