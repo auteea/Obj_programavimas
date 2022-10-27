@@ -11,8 +11,8 @@
 #include <numeric>
 #include <chrono>
 
-#include "Funkcijos.h"
-#include "Studentas.h"
+#include "Funkcijos3.h"
+#include "Studentas3.h"
 
 using namespace std;
 
