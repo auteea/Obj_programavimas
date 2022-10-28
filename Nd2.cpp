@@ -32,8 +32,8 @@ int main()
     else {
         int pazymiu_sk;
         char temp;
-        std::vector<studentas> Eil;
-        read_from_file(Eil, &pazymiu_sk);
+        vector<studentas> Eil;
+        read_from_file(Eil, &pazymiu_sk, "studentai10000.txt");
         print_student(Eil, pazymiu_sk);
         system("pause");
         return 0;
