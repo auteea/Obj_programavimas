@@ -11,12 +11,10 @@
 
 using namespace std;
 
-float count_median(std::vector<int> pazymiai);
-
-void print_student(std::vector<studentas> Eil, int pazymiu_sk);
+void print_student(vector<studentas> Eil, int pazymiu_sk);
 
 unsigned int countWordsInString(std::string const& str);
 
-void read_from_file(std::vector<studentas>& Eil, int* pazymiu_sk);
+void read_from_file(vector<studentas>& Eil, int* pazymiu_sk, string filename);
 
 vector<studentas> ivedimas();
