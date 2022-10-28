@@ -15,87 +15,58 @@
 
 using namespace std;
 
-float count_median(std::vector<int> pazymiai) 
-{
-    int counter = 0;
-    for (int i = 0; i < 10; i++)
-    {
-        if (pazymiai[i] != 0)
-        {
-            counter++;
-        }
-        if (pazymiai[i] == -1)
-        {
-            pazymiai[i] = 0;
-            counter--;
-            break;
-        }
-    }
-    if (counter % 2 == 0)
-    {
-        return float(((pazymiai[counter / 2 - 1]) + (pazymiai[(counter / 2)])) / 2.0);
-    }
-    else
-    {
-        return float(pazymiai[(counter / 2)]);
-    }
-}
 
 void print_student(std::vector<studentas> Eil, int pazymiu_sk) {
-    std::ofstream output;
+    ofstream output;
     output.open("rezultatai.txt");
-    output << std::setw(20) << std::left << "Vardas"
-        << std::setw(20) << std::left << "Pavarde"
-        << std::setw(18) << std::left << "Galutinis(vid.)/"
-        << std::left << "Galutinis(med.)\n"
+    output << setw(20) << left << "Vardas"
+        << setw(20) << left << "Pavarde"
+        << setw(18) << left << "Galutinis(vid.)/"
+        << left << "Galutinis(med.)\n"
         << "--------------------------------------------------------------------------\n";
     for (int i = 0; i < Eil.size(); i++)
     {
-        if (Eil[i].ivestis == "") {
-            output << std::setw(20) << std::left << Eil[i].Vard
-                << std::setw(20) << std::left << Eil[i].Pav
-                << std::setw(18) << std::left << Eil[i].GP
-                << count_median(Eil[i].paz) << std::endl;
-        }
-        else if (Eil[i].ivestis == "0") {
-            output << std::setw(20) << std::left << Eil[i].Vard
-                << std::setw(20) << std::left << Eil[i].Pav
-                << std::setw(18) << std::left << "----"
-                << Eil[i].med << std::endl;
+        if (Eil[i].ivestis == "0") {
+            output << setw(20) << left << Eil[i].Vard
+                << setw(20) << left << Eil[i].Pav
+                << setw(18) << left << "----"
+                << setprecision(3) << Eil[i].med << endl;
         }
         else {
-            output << std::setw(20) << std::left << Eil[i].Vard
-                << std::setw(20) << std::left << Eil[i].Pav
-                << std::setw(18) << std::left << Eil[i].GP
-                << "---" << std::endl;
+            output << setw(20) << left << Eil[i].Vard
+                << setw(20) << left << Eil[i].Pav
+                << setw(18) << left << setprecision(3) << Eil[i].GP
+                << "----" << endl;
         }
     }
     output << "\n\n";
 }
 
-unsigned int countWordsInString(std::string const& str)
+unsigned int countWordsInString(string const& str)
 {
-    std::stringstream stream(str);
-    return std::distance(std::istream_iterator<std::string>(stream), std::istream_iterator<std::string>());
+    stringstream stream(str);
+    return distance(istream_iterator<string>(stream), istream_iterator<string>());
 }
 
-void read_from_file(std::vector<studentas>& Eil, int* pazymiu_sk)
+void read_from_file(vector<studentas>& Eil, int* pazymiu_sk, string filename)
 {
     int student_counter = 0;
     int temp;
-    std::ifstream fileRead;
-    std::string buff;
-    fileRead.open("studentai100000.txt.txt");
+    ifstream fileRead;
+    string buff;
+    fileRead.open(filename);
     if (fileRead.is_open())
     {
-        getline(fileRead >> std::ws, buff);
+        getline(fileRead >> ws, buff);
         *pazymiu_sk = countWordsInString(buff) - 3;
         while (true)
         {
-
             Eil.resize(Eil.size() + 1);
             fileRead >> Eil.at(student_counter).Vard;
-            if (fileRead.eof()) { Eil.pop_back(); break; }
+            if (fileRead.eof()) {
+                Eil.pop_back();
+                break;
+            }
             fileRead >> Eil.at(student_counter).Pav;
             for (int i = 0; i < *pazymiu_sk; i++)
             {
@@ -103,15 +74,16 @@ void read_from_file(std::vector<studentas>& Eil, int* pazymiu_sk)
                 Eil.at(student_counter).paz.push_back(temp);
             }
             fileRead >> Eil.at(student_counter).egz;
-            //std::cout << Eil.at(student_counter).Vard;
             Eil.at(student_counter).GP = Eil.at(student_counter).GP / *pazymiu_sk;
             Eil.at(student_counter).GP = Eil.at(student_counter).GP * 0.4 + 0.6 * Eil.at(student_counter).egz;
             student_counter++;
+            
         }
     
     }
-    else { std::cout << "-\n"; }
+    else { cout << "-\n"; }
 }
+
 vector<studentas> ivedimas() {
     vector<studentas> grupe;
     studentas stud;
@@ -129,13 +101,13 @@ vector<studentas> ivedimas() {
         stud.paz.reserve(20);
         cout << "Iveskite " << i + 1 << "-aji varda: ";
         cin >> stud.Vard;
-        cout << "pavarde: ";
+        cout << "Pavarde: ";
         cin >> stud.Pav;
         string generuoja;
         cout << "Jei norite ivesti pazymius pats spauskite 0 , jei nenorite spauskite bet kuri kita mygtuka  ";
         cin >> generuoja;
         if (generuoja != "0") {
-            cout << "egzamino pazimys: ";
+            cout << "Egzamino pazymys: ";
             stud.egz = 1 + rand() % 10;
             cout << stud.egz << "\n";
             string x = "x";
@@ -148,11 +120,11 @@ vector<studentas> ivedimas() {
             }
         }
         else {
-            cout << "egzamino pazimys: ";
+            cout << "Egzamino pazymys: ";
             int egzaminas;
             cin >> egzaminas;
             while (cin.fail() || egzaminas < 1 || egzaminas>10) {
-                cout << "klaida, iveskite skaiciu ne didesni uz 10  ";
+                cout << "Klaida, iveskite skaiciu ne didesni uz 10  ";
                 cin.clear();
                 cin.ignore(256, '\n');
                 cin >> egzaminas;
@@ -162,7 +134,7 @@ vector<studentas> ivedimas() {
             int x = 1;
             cin >> x;
             while (cin.fail() || x < 0 || x>10) {
-                cout << "klaida, iveskite teigiama skaiciu, mazesni uz 10 (arba 0) ";
+                cout << "Klaida, iveskite teigiama skaiciu, mazesni uz 10 (arba 0) ";
                 cin.clear();
                 cin.ignore(256, '\n');
                 cin >> x;
@@ -171,7 +143,7 @@ vector<studentas> ivedimas() {
                 stud.paz.push_back(x);
                 cin >> x;
                 while (cin.fail() || x < 0 || x>10) {
-                    cout << "klaida, iveskite teigiama skaiciu, mazesni uz 10 (arba 0) ";
+                    cout << "Klaida, iveskite teigiama skaiciu, mazesni uz 10 (arba 0) ";
                     cin.clear();
                     cin.ignore(256, '\n');
                     cin >> x;
@@ -185,7 +157,8 @@ vector<studentas> ivedimas() {
         float mediana;
         if (c != 0) {
             if (c % 2 != 0)	mediana = stud.paz[c / 2 + 0.5];
-            else    			mediana = ((float)stud.paz[c / 2 - 1] + (float)stud.paz[c / 2]) / 2;
+            else { 
+                mediana = ((float)stud.paz[c / 2 - 1] + (float)stud.paz[c / 2]) / 2; }
         }
         stud.med = mediana * 0.4 + 0.6 * stud.egz;
         if (c == 0) stud.GP = 0.6 * stud.egz;
@@ -194,8 +167,9 @@ vector<studentas> ivedimas() {
             suma = accumulate(stud.paz.begin(), stud.paz.end(), 0);
             float vid = suma / c;
             stud.GP = vid * 0.4 + 0.6 * stud.egz;
+            
         }
-        cout << "\n Jei noresite gauti galutini pazymi pagal mediana spauskite: 0 \n jei pagal vidurki: bet ka kita \n";
+        cout << "\nJei noresite gauti galutini pazymi pagal mediana spauskite: 0 \njei pagal vidurki: bet ka kita.\n";
         string ivestis;
         cin >> ivestis;
         stud.ivestis = ivestis;
