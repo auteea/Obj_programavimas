@@ -8,4 +8,4 @@
 
 
 # Išvedimo pavyzdys:
-![alt text](Spartos_analizė.jpg)
+![alt text](Spartos_analizė.png)
