@@ -1,14 +1,11 @@
 # Veikimas
 [atgal į master](https://github.com/auteea/Obj_programavimas)
-- programa sukuria duomenų failą su nustatytais parametrais (studentų skaičius, namų darbų kiekis).
-- galima pasirinkti ar galutinis pažymys bus skaičiuojamas su vidurkiu ar mediana.
-- galima pasirinkti kiek namų darbų turės studentai.
-- programa automatiškai sugeneruoja failų pavadinimus pagal tai kiek yra studentų.
-- studentai pagal galutinį pažymį išskirstomi į dvi grupes >5: "vargšelis", <="kietekas".
-- į rezultatų failus išvedami "kietekai" ir "vargšeliai".
-- yra spartos analizė.
-- skaičiuojama su skirtingais duomenų kiekiais (1k, 10k, 100k, 1mil, 10mil*).
+- Galima pasirinkti ar sukurti naują file, ar naudoti jau turimą.
+- Programa sukuria duomenų failą su pasirinktu studentų skaičiumi.
+- Studentai pagal galutinį pažymį išskirstomi į dvi grupes: "vargšiukai" < 5 ir "galvočiai" => 5
+- Rezultatai išvedami į atskirus files
+- Atliekama teksto sukūrimo, nuskaitymo, rūšiavimo bei išvedimo spartos analizė
 
 
 # išvedimo pavyzdys:
-![alt text]()
+![alt text](Spartos_analizė.jpg)
