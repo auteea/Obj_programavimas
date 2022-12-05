@@ -7,5 +7,5 @@
 - Atliekama teksto sukūrimo, nuskaitymo, rūšiavimo bei išvedimo spartos analizė
 
 
-# išvedimo pavyzdys:
+# Išvedimo pavyzdys:
 ![alt text](Spartos_analizė.jpg)
