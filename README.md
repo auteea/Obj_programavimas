@@ -1,4 +1,4 @@
-# pirma užduotis (v0.1)
+# Pirma užduotis (v0.1)
 [atgal į master](https://github.com/auteea/Obj_programavimas/tree/main)
 
 ## užduotis
