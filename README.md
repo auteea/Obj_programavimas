@@ -24,8 +24,9 @@ Programa atlieką tuos pačius skaičiavimus kaip ir praeitoje versijoje, tik sk
   - 100,000 duomenų
  ![alt text](Sparta_strategija_100000.png)
   - 1,000,000 duomenų
- ![alt text](4.png)
-  - 10,000,000 duomenų
- ![alt text](51.png)
+ ![alt text](Sparta_strategija_1000000.png)
+  
  ## Išvados
  
+ -Naudojant 2 strategija programa užtrunka ilgiau
+ -Programa prasčiau (ilgiau) tvarkosi su vectoriais
