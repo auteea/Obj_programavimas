@@ -18,13 +18,13 @@ Programa atlieką tuos pačius skaičiavimus kaip ir praeitoje versijoje, tik sk
 
  ## Testavimo rezultatai
  - 1000 duomenų
- ![alt text](Sparta_strategija_1000.png)
+ ![alt text](Sparta_strategijos_1000.png)
   - 10,000 duomenų
- ![alt text](Sparta_strategija_10000.png)
+ ![alt text](Sparta_strategijos_10000.png)
   - 100,000 duomenų
- ![alt text](Sparta_strategija_100000.png)
+ ![alt text](Sparta_strategijos_100000.png)
   - 1,000,000 duomenų
- ![alt text](Sparta_strategija_1000000.png)
+ ![alt text](Sparta_strategijos_1000000.png)
   
  ## Išvados
  
