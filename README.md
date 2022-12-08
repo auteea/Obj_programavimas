@@ -33,4 +33,5 @@ Programa atlieką tuos pačius skaičiavimus kaip ir praeitoje versijoje, tik sk
  ## Išvados
  
  -Naudojant 2 strategija programa užtrunka ilgiau
+ 
  -Programa prasčiau (ilgiau) tvarkosi su vectoriais
