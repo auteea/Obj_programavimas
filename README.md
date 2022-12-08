@@ -2,10 +2,10 @@
 [atgal į master](https://github.com/auteea/Obj_programavimas)
 ## Veikimas
 Programa atlieką tuos pačius skaičiavimus kaip ir praeitoje versijoje, tik skirtingais būdais:
- - naudojant vektorius, skirstant studentus į du naujai sukuriamus vektorius
- - naudojant listus, skstant studentus į du naujai sukuriamus vekktorius
- - naudojant vektorius, kuriant tik vieną naują "Vargšiukų" vektorių ir tuos "Vargšiukus" pašalinant iš pradinio vektoriaus, taip pradinis vektorius tampa "Galvočiai"
- - naudojant listus, kuriant tik vieną naują "Vargšiukų" listą ir tuos "Vargšiukus" pašalinant iš pradinio listo, taip pradinis listas tampa "Galvočiai"
+ - Naudojant vektorius, skirstant studentus į du naujai sukuriamus vektorius
+ - Naudojant listus, skstant studentus į du naujai sukuriamus vekktorius
+ - Naudojant vektorius, kuriant tik vieną naują "Vargšiukų" vektorių ir tuos "Vargšiukus" pašalinant iš pradinio vektoriaus, taip pradinis vektorius tampa "Galvočiai"
+ - Naudojant listus, kuriant tik vieną naują "Vargšiukų" listą ir tuos "Vargšiukus" pašalinant iš pradinio listo, taip pradinis listas tampa "Galvočiai"
  ## Instrukcijos
  
 -Vartotojo paklausiama ar jis nori duomenų file sukurti, ar naudoti jau esamą.
