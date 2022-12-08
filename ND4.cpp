@@ -35,6 +35,12 @@ int main() {
         cout << "Keliu studentu duomenu norite?\n";
         int a;
         cin >> a;
+        while (cin.fail()) {
+            cout << "Klaida, iveskite skaiciu  ";
+            cin.clear();
+            cin.ignore(256, '\n');
+            cin >> a;
+        }
         chrono::steady_clock::time_point begin = std::chrono::steady_clock::now();
         textgenerator("test.txt", a);
         chrono::steady_clock::time_point end = std::chrono::steady_clock::now();
