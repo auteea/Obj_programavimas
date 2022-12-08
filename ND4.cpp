@@ -24,7 +24,8 @@ int main() {
     cout << "Ar norite is naujo sugeneruoti file (Y) ar naudoti jau turima (N)?\n";
     char x;
     cin >> x;
-    while (toupper(x) != 'N' && toupper(x) != 'Y') {
+    x = toupper(x);
+    while (x != 'N' && x != 'Y') {
         cout << "Klaida, iveskite N arba Y ";
         cin.clear();
         cin.ignore(256, '\n');
