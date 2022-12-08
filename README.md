@@ -17,3 +17,7 @@ Atliekamas vector ir list konteinerių spartos palyginimas nuskaitant duomenis i
 - Spartos analizė su 100 000 duomenų:
 
 ![alt text](Spartos_analize_100000.png)
+
+- Spartos analizė su 1 000 000 duomenų:
+
+![alt text](Spartos_analize_1000000.png)
