@@ -7,9 +7,9 @@ Atliekamas vector ir list konteinerių spartos palyginimas nuskaitant/sukuriant 
 
 **Kompiuterio parametrai**
 
-CPU: Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz   2.11 GHz
-RAM: 8GB
-HDD: SSD 512 GB
+-CPU: Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz   2.11 GHz
+-RAM: 8GB
+-HDD: SSD 512 GB
 
 **Rezultatai**
 - Spartos analizė su 1000 duomenų:
